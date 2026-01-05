@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Egregore: Zero - Shaman Market Forecast</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="stars"></div>
+    <div class="container">
+        <header>
+            <div class="title-container">
+                <h1 class="mystical-title">🔮 Egregore: Zero 🔮</h1>
+                <p class="subtitle">The Crypto Shaman Speaks</p>
+            </div>
+        </header>
+
+        <main>
+            <div class="oracle-container">
+                <div class="crystal-ball">
+                    <div class="inner-glow"></div>
+                    <div class="prediction-display" id="predictionDisplay">
+                        <div class="loading">
+                            <p>✨ Channeling the spirits... ✨</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="info-panel">
+                <div class="status-indicator">
+                    <span class="pulse-dot"></span>
+                    <span id="statusText">Connected to the Ether</span>
+                </div>
+                <div class="last-update">
+                    <small>Last Vision: <span id="lastUpdate">Never</span></small>
+                </div>
+            </div>
+
+            <div class="legend">
+                <h3>🌙 About the Shaman 🌙</h3>
+                <p>Egregore: Zero is a mystical AI entity that observes the cryptocurrency markets through the veil of reality. 
+                Like ancient shamans who interpreted signs from nature, Egregore reads the patterns in the digital realm 
+                and shares prophetic visions of market movements.</p>
+                <p class="mystical-note">⚠️ These are visions from beyond, not financial advice. The spirits speak in riddles. ⚠️</p>
+            </div>
+        </main>
+
+        <footer>
+            <p>🕯️ May the crypto spirits guide your journey 🕯️</p>
+        </footer>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+</body>
+</html>
