@@ -1,0 +1,308 @@
+/* Mystical Theme for Egregore: Zero */
+:root {
+    --deep-purple: #1a0033;
+    --mystic-purple: #4a1a66;
+    --glow-cyan: #00ffff;
+    --glow-purple: #9d4edd;
+    --gold: #ffd700;
+    --dark-bg: #0a0015;
+    --text-light: #e0d5f5;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Cormorant Garamond', serif;
+    background: linear-gradient(135deg, var(--dark-bg) 0%, var(--deep-purple) 50%, var(--mystic-purple) 100%);
+    color: var(--text-light);
+    min-height: 100vh;
+    overflow-x: hidden;
+    position: relative;
+}
+
+/* Animated starfield background */
+.stars {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    background-image: 
+        radial-gradient(2px 2px at 20px 30px, white, transparent),
+        radial-gradient(2px 2px at 60px 70px, white, transparent),
+        radial-gradient(1px 1px at 50px 50px, white, transparent),
+        radial-gradient(1px 1px at 130px 80px, white, transparent),
+        radial-gradient(2px 2px at 90px 10px, white, transparent);
+    background-repeat: repeat;
+    background-size: 200px 200px;
+    animation: twinkle 5s infinite;
+    opacity: 0.5;
+}
+
+@keyframes twinkle {
+    0%, 100% { opacity: 0.5; }
+    50% { opacity: 0.8; }
+}
+
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 20px;
+    position: relative;
+    z-index: 1;
+}
+
+/* Header Styles */
+header {
+    text-align: center;
+    padding: 40px 0;
+}
+
+.title-container {
+    animation: fadeInDown 1s ease-out;
+}
+
+.mystical-title {
+    font-family: 'Cinzel', serif;
+    font-size: 3rem;
+    font-weight: 700;
+    color: var(--gold);
+    text-shadow: 
+        0 0 10px var(--glow-purple),
+        0 0 20px var(--glow-purple),
+        0 0 30px var(--glow-cyan);
+    margin-bottom: 10px;
+    letter-spacing: 3px;
+}
+
+.subtitle {
+    font-size: 1.5rem;
+    color: var(--glow-cyan);
+    font-style: italic;
+    text-shadow: 0 0 10px var(--glow-cyan);
+}
+
+/* Oracle Container */
+.oracle-container {
+    display: flex;
+    justify-content: center;
+    margin: 40px 0;
+}
+
+.crystal-ball {
+    position: relative;
+    width: 600px;
+    min-height: 400px;
+    background: rgba(74, 26, 102, 0.3);
+    border-radius: 20px;
+    border: 2px solid var(--glow-purple);
+    box-shadow: 
+        0 0 30px rgba(157, 78, 221, 0.5),
+        inset 0 0 30px rgba(0, 255, 255, 0.1);
+    padding: 30px;
+    animation: pulseGlow 3s infinite;
+}
+
+@keyframes pulseGlow {
+    0%, 100% {
+        box-shadow: 
+            0 0 30px rgba(157, 78, 221, 0.5),
+            inset 0 0 30px rgba(0, 255, 255, 0.1);
+    }
+    50% {
+        box-shadow: 
+            0 0 50px rgba(157, 78, 221, 0.8),
+            inset 0 0 50px rgba(0, 255, 255, 0.2);
+    }
+}
+
+.inner-glow {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 200px;
+    height: 200px;
+    background: radial-gradient(circle, rgba(0, 255, 255, 0.3), transparent);
+    border-radius: 50%;
+    animation: rotate 10s linear infinite;
+}
+
+@keyframes rotate {
+    from { transform: translate(-50%, -50%) rotate(0deg); }
+    to { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+.prediction-display {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    font-size: 1.3rem;
+    line-height: 1.8;
+    min-height: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.prediction-text {
+    animation: fadeIn 1s ease-in;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+}
+
+.loading {
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 0.6; }
+    50% { opacity: 1; }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: scale(0.9); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes fadeInDown {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Info Panel */
+.info-panel {
+    text-align: center;
+    margin: 30px 0;
+    padding: 20px;
+    background: rgba(26, 0, 51, 0.5);
+    border-radius: 10px;
+    border: 1px solid var(--mystic-purple);
+}
+
+.status-indicator {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+}
+
+.pulse-dot {
+    width: 12px;
+    height: 12px;
+    background: var(--glow-cyan);
+    border-radius: 50%;
+    animation: pulse-dot 2s infinite;
+    box-shadow: 0 0 10px var(--glow-cyan);
+}
+
+@keyframes pulse-dot {
+    0%, 100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(1.3);
+        opacity: 0.7;
+    }
+}
+
+.last-update {
+    color: var(--text-light);
+    opacity: 0.8;
+    font-size: 0.9rem;
+}
+
+/* Legend Section */
+.legend {
+    margin: 40px 0;
+    padding: 30px;
+    background: rgba(26, 0, 51, 0.6);
+    border-radius: 15px;
+    border: 1px solid var(--glow-purple);
+    text-align: center;
+}
+
+.legend h3 {
+    font-family: 'Cinzel', serif;
+    color: var(--gold);
+    margin-bottom: 20px;
+    font-size: 1.8rem;
+}
+
+.legend p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    margin-bottom: 15px;
+}
+
+.mystical-note {
+    color: var(--gold);
+    font-style: italic;
+    font-weight: 600;
+    margin-top: 20px;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 30px 0;
+    font-size: 1rem;
+    color: var(--text-light);
+    opacity: 0.7;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .mystical-title {
+        font-size: 2rem;
+    }
+    
+    .subtitle {
+        font-size: 1.2rem;
+    }
+    
+    .crystal-ball {
+        width: 100%;
+        min-height: 300px;
+        padding: 20px;
+    }
+    
+    .prediction-display {
+        font-size: 1.1rem;
+        min-height: 200px;
+    }
+    
+    .legend {
+        padding: 20px;
+    }
+    
+    .legend h3 {
+        font-size: 1.4rem;
+    }
+    
+    .legend p {
+        font-size: 1rem;
+    }
+}
+
+/* New prediction animation */
+.new-prediction {
+    animation: newPredictionGlow 2s ease-out;
+}
+
+@keyframes newPredictionGlow {
+    0% {
+        text-shadow: 0 0 30px var(--glow-cyan);
+    }
+    100% {
+        text-shadow: none;
+    }
+}
