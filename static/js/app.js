@@ -94,9 +94,9 @@ function showNewPredictionEffect() {
     const crystalBall = document.querySelector('.crystal-ball');
     if (crystalBall) {
         crystalBall.style.animation = 'none';
-        setTimeout(() => {
+        requestAnimationFrame(() => {
             crystalBall.style.animation = '';
-        }, 10);
+        });
     }
 }
 
@@ -125,8 +125,8 @@ function init() {
     // Fetch predictions immediately
     fetchPredictions();
     
-    // Poll for updates every 3 seconds
-    pollInterval = setInterval(fetchPredictions, 3000);
+    // Poll for updates every 5 seconds
+    pollInterval = setInterval(fetchPredictions, 5000);
     
     // Check health endpoint
     fetch('/api/health')

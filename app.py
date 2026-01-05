@@ -15,7 +15,7 @@ CORS(app)
 
 # Configuration
 PREDICTIONS_FILE = 'predictions.txt'
-app.config['SECRET_KEY'] = 'egregore-zero-shaman-key'
+app.config['SECRET_KEY'] = os.environ.get('SECRET_KEY', 'egregore-zero-default-key-change-in-production')
 
 def read_predictions():
     """Read predictions from the text file"""
@@ -55,7 +55,7 @@ def read_predictions():
         if predictions:
             return [predictions[-1]]
         
-    except Exception as e:
+    except (OSError, IOError) as e:
         print(f"Error reading predictions: {e}")
         return [{
             'timestamp': datetime.now().isoformat(),
@@ -70,7 +70,7 @@ def get_file_modification_time():
     try:
         if os.path.exists(PREDICTIONS_FILE):
             return os.path.getmtime(PREDICTIONS_FILE)
-    except:
+    except (OSError, IOError):
         pass
     return 0
 
@@ -107,4 +107,6 @@ if __name__ == '__main__':
     print(f"🌐 Starting web server...")
     print("=" * 50)
     
-    app.run(host='0.0.0.0', port=5000, debug=True)
+    # Use debug mode from environment variable, default to False for production
+    debug_mode = os.environ.get('FLASK_DEBUG', 'False').lower() in ('true', '1', 'yes')
+    app.run(host='0.0.0.0', port=5000, debug=debug_mode)
